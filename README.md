@@ -1,26 +1,93 @@
-# Academia Front (connected)
+# Academia Frontend
 
-Este projeto Frontend (React + Vite + TypeScript + Tailwind) já vem configurado para consumir a sua API em `VITE_API_URL` (padrão: http://localhost:3000).
+Sistema completo de gerenciamento de academia integrado com backend Node.js + Prisma + PostgreSQL (Neon).
+
+## Funcionalidades
+
+### 🔐 Autenticação
+- Login de alunos com JWT
+- Proteção de rotas privadas
+- Logout automático
+
+### 📊 Dashboard
+- Estatísticas gerais (total de alunos, treinos, matriculados, instrutores)
+- Cards interativos com navegação
+
+### 👥 Gerenciamento de Alunos
+- Listagem com status de matrícula e saldo
+- Cadastro de novos alunos
+- Validação de senha forte no backend
+
+### 🏋️ Treinos
+- Criação de treinos vinculados a alunos e instrutores
+- Sistema de destaque para treinos
+- Exclusão lógica (soft delete)
+- Listagem com detalhes completos
+
+### 💪 Exercícios
+- CRUD completo (criar, editar, deletar)
+- Vinculação a treinos específicos
+- Controle de séries e repetições
+
+### 💰 Planos e Pagamentos
+- Sistema de depósitos para adicionar saldo
+- Registro de pagamentos (PIX, Cartão, Dinheiro)
+- Histórico completo de transações
+- Visualização de saldos dos alunos
+
+## Tecnologias
+
+- **Frontend**: React 18 + TypeScript + Vite
+- **Estilização**: Tailwind CSS
+- **Roteamento**: React Router DOM
+- **HTTP Client**: Axios
+- **Backend**: Node.js + Express + Prisma
+- **Banco**: PostgreSQL (Neon)
 
 ## Como usar
 
-1. Extraia/clone esta pasta.
-2. Copie `.env.example` → `.env` e ajuste `VITE_API_URL` se necessário.
-3. No terminal, dentro da pasta do projeto:
-   ```
+1. **Backend**: Certifique-se que a API está rodando em `http://localhost:3000`
+
+2. **Frontend**:
+   ```bash
    npm install
    npm run dev
    ```
-4. Abra http://localhost:5173
 
-Você precisa ter a API (academia-dev) rodando em `http://localhost:3000` (ou ajustar .env).
+3. **Acesse**: http://localhost:5173
 
-As páginas incluídas:
-- Login (POST /login) — salva token em localStorage
-- Dashboard
-- Alunos (GET /alunos, POST /alunos)
-- Instrutores (GET /instrutores, POST /instrutores)
-- Treinos (GET /treinos, GET /treinos/:alunoId, POST /treinos)
-- Exercícios (GET /exercicios, GET /exercicios/:id, POST /exercicios, PUT /exercicios/:id, DELETE /exercicios/:id)
+## Estrutura de Rotas
 
-Se quiser que eu adapte nomes de campos ou rotas, cole aqui um trecho do seu backend e eu ajusto.
+- `/login` - Autenticação
+- `/` - Dashboard principal
+- `/alunos` - Gerenciamento de alunos
+- `/treinos` - Gerenciamento de treinos
+- `/exercicios` - Gerenciamento de exercícios
+- `/planos` - Pagamentos e depósitos
+
+## Integração com Backend
+
+O frontend consome as seguintes APIs:
+
+- `POST /alunos/login` - Autenticação
+- `GET/POST /alunos` - Gerenciamento de alunos
+- `GET/POST /treinos` - Gerenciamento de treinos
+- `GET/POST/PUT/DELETE /exercicios` - CRUD de exercícios
+- `GET/POST /pagamentos` - Sistema de pagamentos
+- `POST /depositos` - Depósitos de saldo
+- `GET /dashboard/gerais` - Estatísticas do dashboard
+- `GET /admins` - Lista de instrutores
+
+## Recursos Implementados
+
+✅ Autenticação JWT completa
+✅ Dashboard com estatísticas reais
+✅ CRUD completo de alunos, treinos e exercícios
+✅ Sistema de pagamentos e depósitos
+✅ Interface responsiva
+✅ Validações de formulário
+✅ Feedback visual de ações
+✅ Navegação intuitiva
+✅ Integração completa com backend
+
+Sistema pronto para produção! 🚀
