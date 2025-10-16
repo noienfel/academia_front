@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import api from '../services/api'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -13,18 +14,8 @@ export default function Login() {
     setErro('')
 
     try {
-      const res = await fetch('http://localhost:3000/alunos/login', { 
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, senha })
-      })
-
-      const data = await res.json()
-
-      if (!res.ok) {
-        setErro(data.erro || 'Erro ao logar')
-        return
-      }
+      const res = await api.post('/alunos/login', { email, senha })
+      const data = res.data
 
       // Salva dados no localStorage
       localStorage.setItem('token', data.token)
